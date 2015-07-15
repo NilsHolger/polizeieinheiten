@@ -1,0 +1,26 @@
+﻿div.policeunit {
+    float: left;
+    width: 300px;
+    margin-right: 10px;
+    min-height: 200px;
+}
+
+div.policeunit div.description {
+   padding:10px;
+}
+
+input[type=text] {
+    padding:3px;
+    border-radius:4px;
+    border: solid 1px #bbb;
+}
+
+textarea {
+    padding:3px;
+    border-radius:4px;
+    border: solid 1px #bbb;
+}
+
+div.policeunit div.panel-heading a{
+    color:white;
+}

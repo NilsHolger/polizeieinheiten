@@ -1,0 +1,18 @@
+﻿<div style="padding:50px;">
+
+    <h3>{{police_unit.name}}</h3>
+
+    <div class="alert alert-danger"ng-show="load_error_text">{{load_error_text}}</div>
+
+    <div class="photo thumbnail" style="width:250px; height:450px; float:left; margin-right:10px;"
+         ng-repeat="photo in photos">
+        <a href="/index.html#/{{policeunit_name}}/photos/{{photo.filename}}">
+           <img src="../../media/{{photo.filename}}" />
+        </a>
+        <p>
+            {{photo.description}}
+        </p>
+    </div>
+
+
+</div>

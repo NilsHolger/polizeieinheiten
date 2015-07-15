@@ -1,0 +1,45 @@
+﻿<div ng-controller="PoliceUnitListController" style="padding:50px;">
+    <p>
+        <input type="text" placeholder="Suche Ergebnisse hier..." ng-model="searchFor" size="30" />
+    </p>
+    <p>
+        Es gibt {{policeUnits.length}} Einheiten zu besichtigen:
+    </p>
+
+    <div class="policeunit panel panel-primary" ng-repeat="policeUnit in policeUnits | filter:{ title: searchFor} | orderBy:'date'">
+
+        <div class="panel-heading">
+            <a href="/index.html#/policeunit/{{policeUnit.name}}">
+                {{policeUnit.title | uppercase}}
+            </a>
+            <div style="float:right">({{policeUnit.date}})</div>
+        </div>
+        <div class="description">
+            {{policeUnit.description}}
+        </div>
+    </div>
+    <div style="clear:left;"></div>
+    <h3>Neue Einheit einfügen:</h3>
+    <div class="policeunit panel panel-danger">
+        <form name="add_policeunit_form">
+            <div class="panel-heading">
+                <div class="alert alert-danger" ng-show="add_policeunit_error">{{add_policeunit_error}}</div>
+                <input type="text" placeholder="Titel..." size="20" ng-model="adding_policeunit.title" />
+                <div style="float:right">
+                    <input name="date" type="text" placeholder="yyyy-mm-dd" size="10" ng-model="adding_policeunit.date" />
+                </div>
+            </div>
+            <div class="description">
+                <p>
+                    <textarea ng-model="adding_policeunit.description" placeholder="Beschreibung..." style="width:100%" rows="4"></textarea>
+                </p>
+                <p>
+                    <input type="text" ng-model="adding_policeunit.name" style="width:100%;" />
+                </p>
+                <p>
+                    <button type="button" class="btn btn-success pull-right" style="margin-bottom:5px;" ng-click="addPoliceUnit(adding_policeunit)">Neue Polizeieinheit</button>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
